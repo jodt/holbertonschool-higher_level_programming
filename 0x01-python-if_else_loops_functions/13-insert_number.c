@@ -5,12 +5,12 @@ listint_t *insert_node(listint_t **head, int number)
 {
 	listint_t *new, *ptr;
 
-	if (head == NULL || *head ==NULL)
+	if (head == NULL || *head == NULL)
 		return (NULL);
 	ptr = *head;
 	new = malloc(sizeof(listint_t));
 	if (new == NULL)
-		return(NULL);
+		return (NULL);
 	new->n = number;
 	while (number > ptr->n)
 	{
