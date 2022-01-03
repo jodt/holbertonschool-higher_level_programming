@@ -10,30 +10,24 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *first, *last;
-	int length = 0, i = 0, idx;
+	listint_t *last;
+	int length = 0, i = 0;
+	int arr[1024];
 
 	if (*head)
 	{
-		first = last = *head;
-		while (last->next)
+		last = *head;
+		while (last)
 		{
+			arr[length] = last->n;
 			last = last->next;
 			length++;
 		}
-		while (i < ((length / 2)))
+		while (i < (length / 2))
 		{
-			idx = 0;
-			if (first->n != last->n)
+			if (arr[i] != arr[length - 1 - i])
 				return (0);
-			first = first->next;
-			last = *head;
 			i++;
-			while (idx != length - i)
-			{
-				last = last->next;
-				idx++;
-			}
 		}
 	}
 	return (1);
