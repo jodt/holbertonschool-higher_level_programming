@@ -14,7 +14,7 @@ int is_palindrome(listint_t **head)
 	int length = 1, count = 0, idx;
 
 	if (head == NULL)
-		return (0);
+		return (1);
 	if (*head == NULL)
 		return (1);
 	last = first = *head;
