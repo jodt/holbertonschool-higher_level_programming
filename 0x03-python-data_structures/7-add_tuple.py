@@ -11,7 +11,7 @@ def add_tuple(tuple_a=(), tuple_b=()):
     if len(tuple_b) == 0:
         first_b, second_b = 0, 0
     elif len(tuple_b) == 1:
-        first_b = tuple_b
+        first_b = tuple_b[0]
         second_b = 0
     elif (len(tuple_b) >= 2):
         first_b = tuple_b[0]
