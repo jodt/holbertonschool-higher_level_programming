@@ -1,2 +1,4 @@
 *-main.py
 __pycache__
+*.c
+!13-is_palindrome.c

@@ -12,4 +12,5 @@
 * Project 10 : function that finds all multiples of 2 in a list
 * Project 11 : function that deletes the item at a specific position in a list
 * Project 12 : complete a source code in order to switch value of a and b
+* Project 13 : function in C that checks if a singly linked list is a palindrome
 
