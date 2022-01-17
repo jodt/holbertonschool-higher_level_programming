@@ -9,4 +9,5 @@ def magic_calculation(a, b):
         finally:
             result = a + b
     return result
+
     
