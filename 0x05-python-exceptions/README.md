@@ -6,4 +6,7 @@
 * Project 4: Write a function that divides element by element 2 lists
 * Project 5: Write a function that raises a type exception
 * Project 6: Write a function that raises a name exception with a message
+* Project 7: Write a function that prints an integer
+* Project 8: Write a function that executes a function safely
+* Project 9: Write a Python function that does exactly the same as Python bytecode provided
 
