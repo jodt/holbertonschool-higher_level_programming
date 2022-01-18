@@ -5,21 +5,59 @@ class Square:
     """
 
     def __init__(self, size=0, position=(0, 0)):
-        """ Initialise Data and checks if size is and integer and not < 0"""
+        """ Initialise Data
+
+        Parameters
+        ----------
+        size : int
+            size of the square
+        position: tuple
+            position of the square
+        """
         self.size = size
         self.position = position
 
-    """getter"""
     @property
     def size(self):
+        """
+        getter to access of the size value
+
+        Return
+        ------
+        int
+            size value
+        """
         return self.__size
 
     @property
     def position(self):
+        """
+        getter to access of values of the postion
+
+        Return
+        ------
+        tuple
+            values of the position
+        """
         return self.__position
-    """setter"""
+
     @size.setter
     def size(self, size):
+        """
+         setter to update size value
+
+        Parameter
+        ---------
+        size: int
+            size of the square
+
+        Raises
+        ------
+        Typerror
+            If size is not an integer
+        ValueError
+            If size is > 0
+        """
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
         elif (size < 0):
@@ -29,6 +67,20 @@ class Square:
 
     @position.setter
     def position(self, value):
+        """
+         setter to update values of position
+
+        Parameter
+        ---------
+        value: tuple
+            values of the postion of the square
+
+        Raises
+        ------
+        Typerror
+            If value is not a tuple or if elements of the tuple
+            are not integer or if elements of the tuple are < 0
+        """
         if not isinstance(value, tuple):
             raise TypeError("position must be a tuple of 2 positive integers")
         elif not isinstance(value[0], int) or not isinstance(value[1], int):
@@ -39,7 +91,14 @@ class Square:
             self.__position = value
 
     def area(self):
-        """return aera of the square"""
+        """
+        calculate the aera of the square
+
+        Returns
+        -------
+        int
+            the aera of the square
+        """
         return self.size ** 2
 
     def my_print(self):
