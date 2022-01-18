@@ -8,10 +8,11 @@ class Square:
     """
 
     def __init__(self, size):
-        """ Initialise Data 
+        """ Initialise Data
 
         Parameters
         ----------
-        size : size of the square
+        size : int
+            size of the square.
         """
         self.__size = size
