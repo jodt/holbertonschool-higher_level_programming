@@ -3,8 +3,7 @@
 
 
 class Square:
-    """
-    This class represents a square """
+    """This class represents a square """
 
     def __init__(self, size=0):
         """ Initialise Data and checks if size is and integer and not < 0
@@ -29,7 +28,7 @@ class Square:
             self.__size = size
 
     def area(self):
-        """calcul the aera of the square
+        """calculate the aera of the square
 
         Returns
         -------
