@@ -81,7 +81,8 @@ class Square:
         Raises
         ------
         Typerror
-            If value is not a tuple or if elements of the tuple
+            If value is not a tuple or if number of elements in
+            the tuple is != 2 or if elements of the tuple
             are not integer or if elements of the tuple are < 0
         """
         if not isinstance(value, tuple):
