@@ -31,7 +31,7 @@ class Square:
     @size.setter
     def size(self, size):
         """
-        setter tu update size value
+        setter to update size value
 
         Parameter
         ---------
