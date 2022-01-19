@@ -85,9 +85,9 @@ class SinglyLinkedList:
         """
         new_node = Node(value)
         current = self.__head
-        if (current == None):
+        if (current is None):
             self.__head = new_node
-        elif (current.next_node == None):
+        elif (current.next_node is None):
             if current.data >= value:
                 new_node.next_node = current
                 self.__head = new_node
@@ -99,11 +99,11 @@ class SinglyLinkedList:
                     new_node.next_node = current
                     self.__head = new_node
                     break
-                elif (current.next_node != None and current.next_node.data >= value):
+                elif (current.next_node and current.next_node.data >= value):
                     new_node.next_node = current.next_node
                     current.next_node = new_node
                     break
-                elif (current.next_node == None):
+                elif (current.next_node is not None):
                     current.next_node = new_node
                     new_node.next_node = None
                     break
@@ -121,7 +121,7 @@ class SinglyLinkedList:
         node = self.__head
         while node:
             result += str(node.data)
-            if (node.next_node == None):
+            if (node.next_node is None):
                 break
             result += "\n"
             node = node.next_node
