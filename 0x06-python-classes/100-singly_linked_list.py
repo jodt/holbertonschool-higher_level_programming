@@ -99,11 +99,11 @@ class SinglyLinkedList:
                     new_node.next_node = current
                     self.__head = new_node
                     break
-                elif (current.next_node is not None and current.next_node.data >= value):
+                elif (current.next_node and current.next_node.data >= value):
                     new_node.next_node = current.next_node
                     current.next_node = new_node
                     break
-                elif (current.next_node is not None):
+                elif (current.next_node is None):
                     current.next_node = new_node
                     new_node.next_node = None
                     break
