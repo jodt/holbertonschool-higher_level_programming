@@ -136,4 +136,5 @@ class Square:
                 for n in range(self.size):
                     string += "#"
                 string += "\n"
-        return string
+
+        return string[:-1]
