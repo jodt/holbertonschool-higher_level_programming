@@ -7,3 +7,4 @@
 * Project 5: add public instance method that prints in stdout the square with the character #
 * Project 6: add public instance method that in stdout the square with the character # at the fixed position
 * Project 7: Write a class Node that defines a node of a singly linked and write a class SinglyLinkedList that defines a singly linked list
+* Project 8 : The same that the project 6 but with a method printing a Square instance should have the same behavior as my_print()
