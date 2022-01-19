@@ -126,7 +126,7 @@ class Square:
         string = ""
         if self.size == 0:
             string += "\n"
-            return string
+            return string[:-1]
         else:
             for j in range(self.position[1]):
                 string += "\n"
@@ -136,5 +136,4 @@ class Square:
                 for n in range(self.size):
                     string += "#"
                 string += "\n"
-
         return string[:-1]
