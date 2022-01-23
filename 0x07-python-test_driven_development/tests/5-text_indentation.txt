@@ -1,0 +1,43 @@
+The ``text_indentation`` module
+===============================
+
+Using ``text_indentation``module
+--------------------------------
+
+First import ``text_indentation`` from ``text_indentation
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Now use it:
+
+    >>> text_indentation("Salut. Ca va")
+    Salut.
+    <BLANKLINE>
+    Ca va
+
+    >>> text_indentation("Salut. Ca va?")
+    Salut.
+    <BLANKLINE>
+    Ca va?
+    <BLANKLINE>
+
+    >>> text_indentation("            ")
+
+    >>> text_indentation(".?.?.?.")
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+
+     >>> text_indentation("        .              ")
+     .
+     <BLANKLINE>

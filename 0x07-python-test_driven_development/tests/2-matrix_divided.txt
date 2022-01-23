@@ -1,0 +1,73 @@
+The ``matrix_divided`` module
+======================
+
+Using ``matrix_divided``
+-------------------
+
+First import ``matrix_divided`` from the ``matrix_divided`` module.
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+    
+Now use it :
+    
+    Test if matrix is a list of lists of intergers
+    >>> matrix = [[4,4,4], [4,4,4]]
+    >>> matrix_divided(matrix, 4)
+    [[1.0, 1.0, 1.0], [1.0, 1.0, 1.0]]
+
+    Test if matrix is not a list
+    >>> matrix = 5
+    >>> matrix_divided(matrix, 4)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    Test if matrix is an empty list
+    >>> matrix = []
+    >>> matrix_divided(matrix, 4)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    Test if matrix is not a list of lists
+    >>> matrix = [5]
+    >>> matrix_divided(matrix, 4)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    Test if lists have not the same length
+    >>> matrix = [[2, 4, 5], [2,5]]
+    >>> matrix_divided(matrix, 4)
+    Traceback (most recent call last):
+    TypeError: Each row of the matrix must have the same size
+
+    Test if lists contains not only integer
+    >>> matrix = [[2, 4, 5], [2,5, "school"]]
+    >>> matrix_divided(matrix, 5)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    Test if div is not a number
+    >>> matrix = [[2, 4, 5], [2,5]]
+    >>> matrix_divided(matrix, "a")
+    Traceback (most recent call last):
+    TypeError: div must be a number
+
+    Test if div is equal to 0
+    >>> matrix = [[2, 4, 5], [2,5]]
+    >>> matrix_divided(matrix, 0)
+    Traceback (most recent call last):
+    ZeroDivisionError: division by zero
+
+    Test if one value is None
+    >>> matrix = [[2, 4, 5], None]
+    >>> matrix_divided(matrix, 6)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    Test if all values are None
+    >>> matrix = [None, None]
+    >>> matrix_divided(matrix, 6)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+
+   
