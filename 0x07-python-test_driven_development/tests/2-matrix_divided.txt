@@ -40,19 +40,25 @@ Now use it :
     TypeError: Each row of the matrix must have the same size
 
     Test if lists contains not only integer
+    >>> matrix = [["school", 4, 5], [2, 5, 6]]
+    >>> matrix_divided(matrix, 5)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    Test if lists contains not only integer
     >>> matrix = [[2, 4, 5], [2,5, "school"]]
     >>> matrix_divided(matrix, 5)
     Traceback (most recent call last):
     TypeError: matrix must be a matrix (list of lists) of integers/floats
 
     Test if div is not a number
-    >>> matrix = [[2, 4, 5], [2,5]]
+    >>> matrix = [[2, 4, 5], [2, 4, 5]]
     >>> matrix_divided(matrix, "a")
     Traceback (most recent call last):
     TypeError: div must be a number
 
     Test if div is equal to 0
-    >>> matrix = [[2, 4, 5], [2,5]]
+    >>> matrix = [[2, 4, 5], [2, 4, 5]]
     >>> matrix_divided(matrix, 0)
     Traceback (most recent call last):
     ZeroDivisionError: division by zero
@@ -69,5 +75,41 @@ Now use it :
     Traceback (most recent call last):
     TypeError: matrix must be a matrix (list of lists) of integers/floats
 
+    Test is div is absent
+    >>> matrix = [[2, 4, 5], [2, 4, 5]]
+    >>> matrix_divided([[1, 2, 3], [4, 5, 6]])
+    Traceback (most recent call last):
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+     
+    Test if no arguments 
+    >>> matrix = [[2, 4, 5], [2, 4, 5]]
+    >>> matrix_divided()
+    Traceback (most recent call last):
+    TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
 
-   
+    Test with -inf value in a list
+    >>> matrx = matrix = [[1, 2, 3], [1, 2, float('-inf')]]
+    >>> matrix_divided(matrix, 5)
+    [[0.2, 0.4, 0.6], [0.2, 0.4, -inf]]
+
+    Test with inf value in a list
+    >>> matrx = matrix = [[1, 2, 3], [1, 2, float('inf')]]
+    >>> matrix_divided(matrix, 5)
+    [[0.2, 0.4, 0.6], [0.2, 0.4, inf]]
+
+    Test if div value is inf
+    >>> matrx = matrix = [[1, 2, 3], [1, 2, 3]]
+    >>> matrix_divided(matrix, float('inf'))
+    [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+    Test if div value is -inf
+    >>> matrx = matrix = [[1, 2, 3], [1, 2, 3]]
+    >>> matrix_divided(matrix, float('-inf'))
+    [[-0.0, -0.0, -0.0], [-0.0, -0.0, -0.0]]
+
+     Test if div value is negatif
+    >>> matrx = matrix = [[1, 2, 3], [1, 2, 3]]
+    >>> matrix_divided(matrix, -3)
+    [[-0.33, -0.67, -1.0], [-0.33, -0.67, -1.0]]
+    
+
