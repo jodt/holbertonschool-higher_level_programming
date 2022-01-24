@@ -12,7 +12,7 @@ def print_square(size):
 
     Parameter
     =========
-    size (int) : size length of the square 
+    size (int) : size length of the square
 
     Raises
     ======

@@ -4,8 +4,10 @@ This is the "say_my_name" module.
 
 The say_my_name module supplies one function, say_my_name()
 """
+
+
 def say_my_name(first_name, last_name=""):
-    """ 
+    """
     Print the string : My name is <first name> <last name>
     with values of first_name and last_name
 
