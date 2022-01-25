@@ -18,6 +18,9 @@ Now use it
     >>> say_my_name("David")
     My name is David 
 
+    >>> say_my_name("")
+    My name is  
+
     >>> say_my_name(12, "White")
     Traceback (most recent call last):
     TypeError: first_name must be a string
