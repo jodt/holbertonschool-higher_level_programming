@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-import __main__
-
-
 def magic_string():
-    return((("{}, ".format("Bestschool"))*__main__.i) + "BestSchool")
+    magic_string.i = getattr(magic_string, 'i', 0) + 1
+    return (magic_string.i - 1) * "BestSchool, " + "BestSchool"
