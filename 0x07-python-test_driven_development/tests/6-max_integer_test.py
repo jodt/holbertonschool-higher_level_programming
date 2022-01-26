@@ -18,12 +18,3 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer([5, 7, 9]), 9)
         self.assertEqual(max_integer([-6, 7, 9]), 9)
         self.assertEqual(max_integer([]), None)
-
-    def test_type(self):
-        """
-        Test Raises
-        """
-        self.assertRaises(TypeError, max_integer, "salut")
-        self.assertRaises(TypeError, max_integer, [3.5, 7, 9])
-        self.assertRaises(TypeError, max_integer, ["hello", 7, 9])
-        self.assertRaises(TypeError, max_integer, -5)
