@@ -84,7 +84,7 @@ Now use it :
    
    
     test if b value is -inf
-    >>> add_integer(float('nan'), 5)
+    >>> add_integer(5, float('nan'))
     Traceback (most recent call last):
     ValueError: cannot convert float NaN to integer
 
