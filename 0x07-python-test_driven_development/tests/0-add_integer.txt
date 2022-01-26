@@ -55,6 +55,43 @@ Now use it :
     Traceback (most recent call last):
     TypeError: a must be an integer
 
+    test if b value is inf
+    >>> add_integer(5, float('inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+   
+   
+    test if b value is -inf
+    >>> add_integer(5, float('-inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+    test if a value is inf
+    >>> add_integer(float('inf'), 5)
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+   
+   
+    test if b value is -inf
+    >>> add_integer(float('-inf'), 5)
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+    test if a value is inf
+    >>> add_integer(float('nan'), 5)
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
+   
+   
+    test if b value is -inf
+    >>> add_integer(float('nan'), 5)
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
+
+   
+
+    
+
 
 
 
