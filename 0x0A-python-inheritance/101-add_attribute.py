@@ -18,7 +18,7 @@ def add_attribute(obj, str1, str2):
     ------
     TypeError: if it's not possible to add new attribute
     """
-    if obj.__class__.__module__ == "builtins":
-        raise TypeError("can't add new attribute ")
-    else:
+    if (hasattr(obj, "__dict__")):
         setattr(obj, str1, str2)
+    else:
+        raise TypeError("can't add new attribute")
