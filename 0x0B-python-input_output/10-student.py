@@ -31,12 +31,8 @@ class Student:
         ----------
         attrs : list of key to display
         """
-        if type(attrs) is list:
-            for elt in attrs:
-                if type(elt) is str:
-                    d = {k: v for k, v in self.__dict__.items() if k in attrs}
-                else:
-                    return self.__dict__
-                return d
+        if type(attrs) is list and all(type(elt) is str for elt in attrs):
+            d = {k: v for k, v in self.__dict__.items() if k in attrs}
+            return d
         else:
             return self.__dict__
