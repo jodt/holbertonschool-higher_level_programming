@@ -36,5 +36,7 @@ class Student:
                 if type(elt) is str:
                     d = {k: v for k, v in self.__dict__.items() if k in attrs}
                     return d
+                else:
+                    return self.__dict__
         else:
             return self.__dict__
