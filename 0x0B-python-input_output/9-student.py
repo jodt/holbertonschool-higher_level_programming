@@ -2,12 +2,14 @@
 """
 This is the student module that defines a student class
 """
-
-
 import json
 
 
 class Student:
+    """
+    This class creates a student class
+    """
+
     def __init__(self, first_name, last_name, age):
         """
         Initialise data
