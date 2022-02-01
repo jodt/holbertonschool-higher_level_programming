@@ -1,0 +1,29 @@
+#!/usr/bin/python3
+"""
+This is the student module that defines a student class
+"""
+
+
+import json
+
+
+class Student:
+    def __init__(self, first_name, last_name, age):
+        """
+        Initialise data
+
+        Parameters:
+        -----------
+        first_name (str): student firest name
+        last_name (str) : student last name
+        age (int) : student age
+        """
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+
+    def to_json(self):
+        """
+        Returns dictionnary of instance object
+        """
+        return self.__dict__
