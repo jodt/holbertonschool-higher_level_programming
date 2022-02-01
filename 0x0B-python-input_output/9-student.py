@@ -1,13 +1,12 @@
 #!/usr/bin/python3
 """
-This is the student module that defines a student class
+This module creates
 """
-import json
 
 
 class Student:
     """
-    This class creates a student class
+    This class represents student
     """
 
     def __init__(self, first_name, last_name, age):

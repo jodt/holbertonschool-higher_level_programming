@@ -1,15 +1,14 @@
 #!/usr/bin/python3
 """
-This is the student module that defines a student class
+This module creates
 """
 
 
-import json
-
-from pyrsistent import v
-
-
 class Student:
+    """
+    This class represents student
+    """
+
     def __init__(self, first_name, last_name, age):
         """
         Initialise data
