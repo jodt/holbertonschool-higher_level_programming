@@ -24,7 +24,6 @@ try:
                 if (v != 0):
                     print("{}: {}".format(k, v))
                     count = 0
-                    filesize = 0
 except KeyboardInterrupt:
     print("File size: {}".format(filesize))
     for k, v in result.items():
