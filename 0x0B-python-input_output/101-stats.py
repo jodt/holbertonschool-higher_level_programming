@@ -2,7 +2,7 @@
 """
 This is stats module
 """
-import fileinput
+import sys
 
 
 count = 0
@@ -11,7 +11,7 @@ result = {"200": 0, "301": 0, "400": 0, "401": 0,
 filesize = 0
 
 try:
-    for line in fileinput.input():
+    for line in sys.stdin:
         separate_string = []
         separate_string = line.split(" ")
         filesize += int((separate_string[-1])[:-1])
