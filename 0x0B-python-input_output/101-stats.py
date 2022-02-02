@@ -4,6 +4,7 @@ This is stats module
 """
 import fileinput
 
+
 count = 0
 result = {"200": 0, "301": 0, "400": 0, "401": 0,
           "403": 0, "404": 0, "405": 0, "500": 0}
@@ -18,12 +19,17 @@ try:
             if k in line:
                 result[k] += 1
                 count += 1
-        if count == 10:
-            print("File size: {}".format(filesize))
-            for k, v in result.items():
-                if (v != 0):
-                    print("{}: {}".format(k, v))
-                    count = 0
+            if count == 10:
+                print("File size: {}".format(filesize))
+                for k, v in result.items():
+                    if (v != 0):
+                        print("{}: {}".format(k, v))
+                        count = 0
+    print("File size: {}".format(filesize))
+    for k, v in result.items():
+        if (v != 0):
+            print("{}: {}".format(k, v))
+        count = 0
 except KeyboardInterrupt:
     print("File size: {}".format(filesize))
     for k, v in result.items():
