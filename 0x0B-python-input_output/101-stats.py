@@ -12,8 +12,7 @@ filesize = 0
 
 try:
     for line in sys.stdin:
-        separate_string = []
-        separate_string = line.split(" ")
+        separate_string = line.split()
         filesize += int(separate_string[-1])
         for k in result.keys():
             if k in line:
