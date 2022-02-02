@@ -20,15 +20,15 @@ try:
         count += 1
         if count % 10 == 0:
             print("File size: {}".format(filesize))
-            for k, v in result.items():
+            for k, v in sorted(result.items()):
                 if (v != 0):
                     print("{}: {}".format(k, v))
     print("File size: {}".format(filesize))
-    for k, v in result.items():
+    for k, v in sorted(result.items()):
         if (v != 0):
             print("{}: {}".format(k, v))
 except KeyboardInterrupt:
     print("File size: {}".format(filesize))
-    for k, v in result.items():
+    for k, v in sorted(result.items()):
         if (v != 0):
             print("{}: {}".format(k, v))
