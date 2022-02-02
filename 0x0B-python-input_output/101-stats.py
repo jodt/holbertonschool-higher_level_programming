@@ -19,17 +19,17 @@ try:
             if k in line:
                 result[k] += 1
                 count += 1
-            if count == 10:
-                print("File size: {}".format(filesize))
-                for k, v in result.items():
-                    if (v != 0):
-                        print("{}: {}".format(k, v))
-                        count = 0
+        if count == 10:
+            print("File size: {}".format(filesize))
+            for k, v in result.items():
+                if (v != 0):
+                    print("{}: {}".format(k, v))
+                    count = 0
     print("File size: {}".format(filesize))
     for k, v in result.items():
         if (v != 0):
             print("{}: {}".format(k, v))
-        count = 0
+            count = 0
 except KeyboardInterrupt:
     print("File size: {}".format(filesize))
     for k, v in result.items():
