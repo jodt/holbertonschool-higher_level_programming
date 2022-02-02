@@ -14,22 +14,20 @@ try:
     for line in sys.stdin:
         separate_string = []
         separate_string = line.split(" ")
-        filesize += int((separate_string[-1])[:-1])
+        filesize += int(separate_string[-1])
         for k in result.keys():
             if k in line:
                 result[k] += 1
-                count += 1
-        if count == 10:
+        count += 1
+        if count % 10 == 0:
             print("File size: {}".format(filesize))
             for k, v in result.items():
                 if (v != 0):
                     print("{}: {}".format(k, v))
-                    count = 0
     print("File size: {}".format(filesize))
     for k, v in result.items():
         if (v != 0):
             print("{}: {}".format(k, v))
-            count = 0
 except KeyboardInterrupt:
     print("File size: {}".format(filesize))
     for k, v in result.items():
