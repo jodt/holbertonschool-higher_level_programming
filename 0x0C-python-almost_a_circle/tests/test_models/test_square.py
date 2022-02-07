@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
 This is the "test_base" module
-
 Thes test_base module suppies a class to test class Base
 """
 import unittest
@@ -12,7 +11,7 @@ from models.square import Square
 
 class TestSquare(unittest.TestCase):
     """
-    test class square
+    test classe square
     """
 
     def setUp(self):

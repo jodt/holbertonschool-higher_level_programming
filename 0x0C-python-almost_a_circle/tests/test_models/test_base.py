@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
 This is the "test_base" module
-
 Thes test_base module suppies a class to test class Base
 """
 

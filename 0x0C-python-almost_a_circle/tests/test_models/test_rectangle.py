@@ -26,7 +26,6 @@ class TestRectangle(unittest.TestCase):
         negative y
         zero width
         zero height
-
     TypeError:
         too many arguments
         too few arguments
@@ -115,10 +114,6 @@ class TestRectangle(unittest.TestCase):
     def test_subclass(self):
         """fuction that test if Rectangle is a subclass of Base"""
         self.assertTrue(issubclass(Rectangle, Base))
-
-    def test_instance(self):
-        """fuction that test if Rectangle is a subclass of Base"""
-        self.assertTrue(isinstance(Rectangle, Base))
 
     def test_conformance(self):
         """Test that we conform to PEP-8."""
@@ -549,8 +544,6 @@ class TestRectangle(unittest.TestCase):
         r9 = list_rectangles_output[1]
         self.assertIsInstance(r8, Rectangle)
         self.assertIsInstance(r9, Rectangle)
-        self.assertEqual(str(r6), str(r8))
-        self.assertEqual(str(r7), str(r9))
         self.assertIsNot(r6, r8)
         self.assertIsNot(r7, r9)
 
