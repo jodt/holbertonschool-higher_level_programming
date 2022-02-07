@@ -655,31 +655,6 @@ class TestRectangle(unittest.TestCase):
             f = (file.read())
         self.assertEqual(f, '[]')
 
-    def test_saveToFile_loadFromFile(self):
-        """Check the both saveto, and loadfrom function to a json file"""
-        r1 = Rectangle(1, 2, 3, 4, 1)
-        r2 = Rectangle(1, 2, 3, 4, 2)
-        listOfRectsInput = [r1, r2]
-        Rectangle.save_to_file(listOfRectsInput)
-        listOfRectsOutput = Rectangle.load_from_file()
-        self.assertEqual(
-            listOfRectsInput[0].to_dictionary(
-            ), listOfRectsOutput[0].to_dictionary()
-        )
-        self.assertEqual(
-            listOfRectsInput[1].to_dictionary(
-            ), listOfRectsOutput[1].to_dictionary()
-        )
-
-    def test_saveToFile_loadFromFile_empty(self):
-        """Check the both saveto, and loadfrom function to a json file"""
-        listOfRectsInput = []
-        Rectangle.save_to_file(listOfRectsInput)
-        listOfRectsOutput = Rectangle.load_from_file()
-        self.assertEqual(
-            listOfRectsInput, listOfRectsOutput
-        )
-
 
 if __name__ == "__main__":
     unittest.main()
