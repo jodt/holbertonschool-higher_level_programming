@@ -323,3 +323,28 @@ class TestSquare(unittest.TestCase):
         with open("Square.json", "r") as file:
             f = (file.read())
         self.assertEqual(f, '[]')
+
+    def test_saveToFile_loadFromFile(self):
+        """Check the both saveto, and loadfrom function to a json file"""
+        r1 = Square(1, 2, 3, 4)
+        r2 = Square(1, 2, 3, 4)
+        listOfRectsInput = [r1, r2]
+        Square.save_to_file(listOfRectsInput)
+        listOfRectsOutput = Square.load_from_file()
+        self.assertEqual(
+            listOfRectsInput[0].to_dictionary(
+            ), listOfRectsOutput[0].to_dictionary()
+        )
+        self.assertEqual(
+            listOfRectsInput[1].to_dictionary(
+            ), listOfRectsOutput[1].to_dictionary()
+        )
+
+    def test_saveToFile_loadFromFile_empty(self):
+        """Check the both saveto, and loadfrom function to a json file"""
+        listOfRectsInput = []
+        Square.save_to_file(listOfRectsInput)
+        listOfRectsOutput = Square.load_from_file()
+        self.assertEqual(
+            listOfRectsInput, listOfRectsOutput
+        )
