@@ -226,11 +226,22 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             Rectangle(0, 2)
 
-    def test_zero_height(self):
+    def test_zero_width(self):
         """fuction that test for ValueError"""
         with self.assertRaises(ValueError):
             r1 = Rectangle(10, 2)
             r1.width = 0
+
+    def test_zero_width(self):
+        """fuction that test for ValueError"""
+        with self.assertRaises(ValueError):
+            Rectangle(2, 0)
+
+    def test_zero_width(self):
+        """fuction that test for ValueError"""
+        with self.assertRaises(ValueError):
+            r1 = Rectangle(10, 2)
+            r1.height = 0
 
     # TypeError
 
@@ -643,6 +654,31 @@ class TestRectangle(unittest.TestCase):
         with open(filename, "r") as file:
             f = (file.read())
         self.assertEqual(f, '[]')
+
+    def test_saveToFile_loadFromFile(self):
+        """Check the both saveto, and loadfrom function to a json file"""
+        r1 = Rectangle(1, 2, 3, 4, 1)
+        r2 = Rectangle(1, 2, 3, 4, 2)
+        listOfRectsInput = [r1, r2]
+        Rectangle.save_to_file(listOfRectsInput)
+        listOfRectsOutput = Rectangle.load_from_file()
+        self.assertEqual(
+            listOfRectsInput[0].to_dictionary(
+            ), listOfRectsOutput[0].to_dictionary()
+        )
+        self.assertEqual(
+            listOfRectsInput[1].to_dictionary(
+            ), listOfRectsOutput[1].to_dictionary()
+        )
+
+    def test_saveToFile_loadFromFile_empty(self):
+        """Check the both saveto, and loadfrom function to a json file"""
+        listOfRectsInput = []
+        Rectangle.save_to_file(listOfRectsInput)
+        listOfRectsOutput = Rectangle.load_from_file()
+        self.assertEqual(
+            listOfRectsInput, listOfRectsOutput
+        )
 
 
 if __name__ == "__main__":
