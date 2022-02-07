@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 This is the "test_base" module
-Thes test_base module suppies a class to test class Base
+The test_base module suppies a class to test class Base
 """
 
 import unittest
@@ -58,12 +58,4 @@ class TestBase(unittest.TestCase):
         self.assertEqual(Base.from_json_string(None), [])
         self.assertEqual(Base.from_json_string("[]"), [])
 
-# --------------------------------------------------------------
-
-    def test_create(self):
-        r4 = Rectangle(3, 5, 1)
-        r4_dictionnary = r4.to_dictionary()
-        r5 = Rectangle.create(**r4_dictionnary)
-        self.assertIsInstance(r5, Rectangle)
-        self.assertIsNot(r4, r5)
-        self.assertNotEqual(r4, r5)
+#
