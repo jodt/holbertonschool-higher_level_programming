@@ -3,6 +3,7 @@
 This module is the base for all the classes
 """
 import json
+import csv
 
 
 class Base:
@@ -105,3 +106,45 @@ class Base:
             return instances_result
         except Exception:
             return instances_result
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        writes the csv file of objetcs list
+
+        Parameter:
+        ----------
+        list_objs : objects list
+        """
+        filename = cls.__name__+".csv"
+        if cls.__name__ == "Rectangle":
+            labels = ["id", "width", "height", "x", "y"]
+        else:
+            labels = ["id", "size", "x", "y"]
+        list_of_dict = [elt.to_dictionary() for elt in list_objs]
+        with open(filename, "w", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=labels)
+            writer.writeheader()
+            for elt in list_of_dict:
+                writer.writerow(elt)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        returns a list of instances
+        """
+        filename = cls.__name__+".csv"
+        list_instance = []
+        list_result = []
+        try:
+            with open(filename) as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    for field_name in row:
+                        row[field_name] = int(row[field_name])
+                    list_instance.append(row)
+                for dico in list_instance:
+                    list_result.append(cls.create(**dico))
+            return list_result
+        except Exception:
+            return list_result
