@@ -5,15 +5,50 @@ The test_base module suppies a class to test class Base
 """
 
 import unittest
+import pycodestyle
 from models.base import Base
-from models.rectangle import Rectangle
-from models.square import Square
 
 
 class TestBase(unittest.TestCase):
     """
     Test class Base
     """
+
+    def test_documentation(self):
+        """test all documentation of module"""
+        # module documentation
+        module = len(Base.__doc__)
+        self.assertGreater(module, 0)
+
+        # class documentation
+        module_class = len(Base.__doc__)
+        self.assertGreater(module_class, 0)
+
+        module_class = len(Base.__init__.__doc__)
+        self.assertGreater(module_class, 0)
+
+        module_class = len(Base.to_json_string.__doc__)
+        self.assertGreater(module_class, 0)
+
+        module_class = len(Base.save_to_file.__doc__)
+        self.assertGreater(module_class, 0)
+
+        module_class = len(Base.from_json_string.__doc__)
+        self.assertGreater(module_class, 0)
+
+        module_class = len(Base.create.__doc__)
+        self.assertGreater(module_class, 0)
+
+        module_class = len(Base.load_from_file.__doc__)
+        self.assertGreater(module_class, 0)
+
+    def test_conformance(self):
+        """Test that we conform to PEP-8."""
+        style = pycodestyle.StyleGuide(quiet=True)
+        result = style.check_files(["models/base.py"])
+        self.assertEqual(
+            result.total_errors, 0, "Found code style errors (pycodestyle)."
+        )
 
     def test_base_id(self):
         """
@@ -28,6 +63,13 @@ class TestBase(unittest.TestCase):
         self.assertEqual(test_2.id, 2)
         self.assertEqual(test_3.id, 77)
         self.assertEqual(test_4.id, 3)
+
+    def test_too_many_arguments(self):
+        """
+        fuction that test for TypeError
+        """
+        with self.assertRaises(TypeError):
+            Base(1, 2)
 
 # ---------------------------------------------------------------
 

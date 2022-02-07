@@ -273,8 +273,8 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(r1.size, 50)
         # *args & **kwars
         r1.update(55, 55, size=50, id=80)
-        self.assertEqual(r1.id, 55)
-        self.assertEqual(r1.size, 55)
+        self.assertEqual(r1.id, 80)
+        self.assertEqual(r1.size, 50)
 
     # test to_dictionary
 
@@ -286,7 +286,8 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(r1.to_dictionary(), {
                          'id': 1, 'size': 10, 'x': 10, 'y': 0})
 
-    # test load_from_file
+    # save_to_file | load_from_file || save_to_file_csv | load_form_file_csv
+
     def test_load_from_file(self):
 
         s6 = Square(10)
@@ -301,14 +302,12 @@ class TestSquare(unittest.TestCase):
         self.assertIsNot(s6, s8)
         self.assertIsNot(s7, s9)
 
-    # test save to file
-
     def test_save_to_file(self):
 
         s1 = Square(10, 7, 8, 10)
         s2 = Square(2, 4, 0, 19)
-        str1 = '[{"id": 10, "size": 10, "x": 7, "y": 8}, '
-        str2 = '{"id": 19, "size": 2, "x": 4, "y": 0}]'
+        str1 = '[{"id": 10, "x": 7, "y": 8, "size": 10}, '
+        str2 = '{"id": 19, "x": 4, "y": 0, "size": 2}]'
         str3 = str1 + str2
         Square.save_to_file([s1, s2])
         with open("Square.json", "r") as file:
@@ -348,3 +347,5 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(
             listOfRectsInput, listOfRectsOutput
         )
+if __name__ == "__main__":
+    unittest.main()
