@@ -129,20 +129,22 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.height, 2)
         self.assertEqual(r1.x, 34)
         self.assertEqual(r1.y, 121)
+
         r2 = Rectangle(10, 2, 5, 65, None)
         self.assertGreater(r2.id, 0)
         self.assertEqual(r2.width, 10)
         self.assertEqual(r2.height, 2)
         self.assertEqual(r2.x, 5)
         self.assertEqual(r2.y, 65)
+
         r3 = Rectangle(10, 2)
         self.assertGreater(r3.id, 0)
         self.assertEqual(r3.width, 10)
         self.assertEqual(r3.height, 2)
         self.assertEqual(r3.x, 0)
         self.assertEqual(r3.y, 0)
-    # tests getters
 
+    # tests getters
     def test_getter_width(self):
         r4 = Rectangle(2, 4, 6, 8)
         self.assertEqual(r4.width, 2)
@@ -158,8 +160,8 @@ class TestRectangle(unittest.TestCase):
     def test_getter_y(self):
         r4 = Rectangle(2, 4, 6, 8)
         self.assertEqual(r4.y, 8)
-    # tests setters #
 
+    # tests setters #
     def test_setter_width(self):
         r4 = Rectangle(2, 4, 6, 8)
         r4.width = 100
@@ -179,8 +181,8 @@ class TestRectangle(unittest.TestCase):
         r4 = Rectangle(2, 4, 6, 8)
         r4.y = 12
         self.assertEqual(r4.y, 12)
-    # ValueError
 
+    # ValueError
     def test_negative_width(self):
         """fuction that test for ValueError"""
         with self.assertRaises(ValueError):
@@ -208,22 +210,10 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             Rectangle(0, 2)
 
-    def test_zero_width(self):
-        """fuction that test for ValueError"""
-        with self.assertRaises(ValueError):
-            r1 = Rectangle(10, 2)
-            r1.width = 0
-
     def test_zero_height(self):
         """fuction that test for ValueError"""
         with self.assertRaises(ValueError):
             Rectangle(2, 0)
-
-    def test_zero_height(self):
-        """fuction that test for ValueError"""
-        with self.assertRaises(ValueError):
-            r1 = Rectangle(10, 2)
-            r1.height = 0
 
     # TypeError
 
@@ -466,6 +456,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.height, 2)
         self.assertEqual(r1.x, 3)
         self.assertEqual(r1.y, 4)
+
         r1.update(width=131)
         self.assertEqual(r1.width, 131)
         self.assertEqual(r1.height, 2)
@@ -473,9 +464,11 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.width, 331)
         self.assertEqual(r1.height, 454)
         self.assertEqual(r1.y, 1)
+
         r1.update(55, 55, width=50, height=300, id=80)
         self.assertEqual(r1.id, 55)
         self.assertEqual(r1.width, 55)
+
         r1.update()
         self.assertEqual(r1.height, 454)
 
@@ -576,6 +569,7 @@ class TestRectangle(unittest.TestCase):
             r3.to_dictionary(),
             {"id": 2, "width": 1, "height": 3, "x": 0, "y": 0},
         )
+
     # create
 
     def test_create(self):
@@ -586,6 +580,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.to_dictionary(), r2.to_dictionary())
         self.assertNotEqual(r1, r2)
         self.assertIsNot(r1, r2)
+
      # test load_from_file
 
     def test_load_from_file(self):
@@ -600,6 +595,7 @@ class TestRectangle(unittest.TestCase):
         self.assertIsInstance(r9, Rectangle)
         self.assertIsNot(r6, r8)
         self.assertIsNot(r7, r9)
+
     # save_to_file
 
     def test_save_to_file(self):
