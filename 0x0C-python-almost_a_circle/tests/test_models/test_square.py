@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """
-This is the "test_base" module
-Thes test_base module suppies a class to test class Base
+This is the "test_square" module
+Thes test_square module supplies a class to test class Square
 """
+from re import S
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
@@ -20,6 +21,14 @@ class TestSquare(unittest.TestCase):
 
     def tearDown(self):
         pass
+
+    def test_subclass(self):
+        """fuction that test if Rectangle is a subclass of Base"""
+        self.assertTrue(issubclass(Square, Base))
+
+    def test_subclass(self):
+        """fuction that test if Rectangle is a subclass of Base"""
+        self.assertTrue(issubclass(Square, Rectangle))
 
     # test correct values
 
