@@ -23,6 +23,7 @@ class TestBase(unittest.TestCase):
         test_2 = Base()
         test_3 = Base(77)
         test_4 = Base(None)
+        self.assertIsInstance(test_1, Base)
         self.assertEqual(test_1.id, 1)
         self.assertEqual(test_2.id, 2)
         self.assertEqual(test_3.id, 77)
