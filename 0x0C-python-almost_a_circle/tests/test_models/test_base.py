@@ -12,6 +12,9 @@ from models.square import Square
 
 
 class TestBase(unittest.TestCase):
+    """
+    Test class Base
+    """
 
     def test_base_id(self):
         """

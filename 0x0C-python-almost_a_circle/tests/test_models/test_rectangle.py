@@ -16,6 +16,7 @@ Rectangle = rectangle.Rectangle
 
 
 class TestRectangle(unittest.TestCase):
+
     """
     class that test the max integer function
     ValueError:
@@ -64,6 +65,13 @@ class TestRectangle(unittest.TestCase):
     to_dictionary
         test the to_dictionary function of Rectangle
     """
+
+    def setUp(self):
+        Base._Base__nb_objects = 0
+        pass
+
+    def tearDown(self):
+        pass
 
     def test_documentation(self):
         """test all documentation of module"""
@@ -507,11 +515,11 @@ class TestRectangle(unittest.TestCase):
         )
         self.assertEqual(
             r2.to_dictionary(),
-            {"id": 42, "width": 1, "height": 3, "x": 4, "y": 12},
+            {"id": 1, "width": 1, "height": 3, "x": 4, "y": 12},
         )
         self.assertEqual(
             r3.to_dictionary(),
-            {"id": 43, "width": 1, "height": 3, "x": 0, "y": 0},
+            {"id": 2, "width": 1, "height": 3, "x": 0, "y": 0},
         )
 
     # create

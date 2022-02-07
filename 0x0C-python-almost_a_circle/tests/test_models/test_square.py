@@ -11,6 +11,9 @@ from models.square import Square
 
 
 class TestSquare(unittest.TestCase):
+    """
+    test classe square
+    """
 
     def setUp(self):
         Base._Base__nb_objects = 0
@@ -224,7 +227,7 @@ class TestSquare(unittest.TestCase):
     # tests Update
 
     def test_update(self):
-        r1 = Square(10, 0, 0)
+        r1 = Square(10, 10, 10)
         # *args
         r1.update(50, 25)
         self.assertEqual(r1.id, 50)
@@ -285,4 +288,3 @@ class TestSquare(unittest.TestCase):
         with open("Square.json", "r") as file:
             f = (file.read())
         self.assertEqual(f, '[]')
-
