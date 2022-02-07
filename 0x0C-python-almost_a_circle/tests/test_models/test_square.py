@@ -22,14 +22,6 @@ class TestSquare(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_subclass(self):
-        """fuction that test if Rectangle is a subclass of Base"""
-        self.assertTrue(issubclass(Square, Base))
-
-    def test_subclass(self):
-        """fuction that test if Rectangle is a subclass of Base"""
-        self.assertTrue(issubclass(Square, Rectangle))
-
     # test correct values
 
     def test_correct_values(self):
