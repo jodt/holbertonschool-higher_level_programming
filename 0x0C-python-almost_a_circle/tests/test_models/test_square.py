@@ -3,6 +3,7 @@
 This is the "test_square" module
 Thes test_square module supplies a class to test class Square
 """
+from re import S
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
@@ -31,7 +32,6 @@ class TestSquare(unittest.TestCase):
     def test_subclass(self):
         """fuction that test if Rectangle is a subclass of Base"""
         self.assertTrue(issubclass(Square, Rectangle))
-
     # test correct values
 
     def test_correct_values(self):
@@ -40,13 +40,11 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(r1.x, 4)
         self.assertEqual(r1.y, 6)
         self.assertEqual(r1.id, 1)
-
         r2 = Square(2, 4, 6, 50)
         self.assertEqual(r2.size, 2)
         self.assertEqual(r2.x, 4)
         self.assertEqual(r2.y, 6)
         self.assertEqual(r2.id, 50)
-
         r3 = Square(2)
         self.assertEqual(r3.size, 2)
         self.assertEqual(r3.x, 0)
@@ -63,7 +61,6 @@ class TestSquare(unittest.TestCase):
             Square(-1, -2, 3, None)
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
             Square(-1, "str", 3, None)
-
     # tests getters
 
     def test_getter_width(self):
@@ -77,7 +74,6 @@ class TestSquare(unittest.TestCase):
     def test_getter_y(self):
         r4 = Square(2, 4, 6)
         self.assertEqual(r4.y, 6)
-
     # tests setters #
 
     def test_setter_width(self):
@@ -94,7 +90,6 @@ class TestSquare(unittest.TestCase):
         r4 = Square(2, 4, 6)
         r4.y = 12
         self.assertEqual(r4.y, 12)
-
     # tests ValueError
 
     def test_negative_size(self):
@@ -112,13 +107,11 @@ class TestSquare(unittest.TestCase):
     def test_negative_y(self):
         with self.assertRaises(ValueError):
             Square(5, 8, -7)
-
     # tests TypeError
 
     def test_too_many_arguments(self):
         with self.assertRaises(TypeError):
             Square(1, 2, 3, 4, 5, 6)
-
     # str :
 
     def test_string_size(self):
@@ -132,7 +125,6 @@ class TestSquare(unittest.TestCase):
     def test_string_y(self):
         with self.assertRaises(TypeError):
             Square(10, 5, "hello")
-
     # list :
 
     def test_list_size(self):
@@ -146,7 +138,6 @@ class TestSquare(unittest.TestCase):
     def test_list_y(self):
         with self.assertRaises(TypeError):
             Square(10, 5, [0, 1, 2])
-
     # tuple :
 
     def test_tuple_size(self):
@@ -160,7 +151,6 @@ class TestSquare(unittest.TestCase):
     def test_tuple_y(self):
         with self.assertRaises(TypeError):
             Square(10, 5, (0, 1, 2))
-
     # float :
 
     def test_float_size(self):
@@ -198,7 +188,6 @@ class TestSquare(unittest.TestCase):
     def test_float_inf_y(self):
         with self.assertRaises(TypeError):
             Square(10, 5, float('inf'))
-
     # Bool :
 
     def test_Bool_size(self):
@@ -212,7 +201,6 @@ class TestSquare(unittest.TestCase):
     def test_Bool_y(self):
         with self.assertRaises(TypeError):
             Square(10, 5, True)
-
     # None :
 
     def test_None_size(self):
@@ -226,14 +214,13 @@ class TestSquare(unittest.TestCase):
     def test_None_y(self):
         with self.assertRaises(TypeError):
             Square(10, 5, None)
-
     # tests Area
 
     def test_aera(self):
         r1 = Square(10, 0, 0)
         self.assertEqual(r1.area(), 100)
-
     # tests Display
+
     def test_diplay(self):
         """Check display func"""
         s1 = Square(2)
@@ -256,7 +243,6 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(r1.__str__(), "[Square] (1) 10/0 - 10")
         self.assertEqual(r2.__str__(), "[Square] (2) 0/0 - 10")
         self.assertEqual(r3.__str__(), "[Square] (50) 10/10 - 10")
-
     # tests Update
 
     def test_update(self):
@@ -271,9 +257,8 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(r1.size, 50)
         # *args & **kwars
         r1.update(55, 55, size=50, id=80)
-        self.assertEqual(r1.id, 80)
-        self.assertEqual(r1.size, 50)
-
+        self.assertEqual(r1.id, 55)
+        self.assertEqual(r1.size, 55)
     # test to_dictionary
 
     def test_to_dictionnary(self):
@@ -283,11 +268,9 @@ class TestSquare(unittest.TestCase):
         # test return
         self.assertEqual(r1.to_dictionary(), {
                          'id': 1, 'size': 10, 'x': 10, 'y': 0})
-
-    # save_to_file | load_from_file || save_to_file_csv | load_form_file_csv
+    # test load_from_file
 
     def test_load_from_file(self):
-
         s6 = Square(10)
         s7 = Square(2, 4, 0, 90)
         list_squares_input = [s6, s7]
@@ -299,13 +282,13 @@ class TestSquare(unittest.TestCase):
         self.assertIsInstance(s9, Square)
         self.assertIsNot(s6, s8)
         self.assertIsNot(s7, s9)
+    # test save to file
 
     def test_save_to_file(self):
-
         s1 = Square(10, 7, 8, 10)
         s2 = Square(2, 4, 0, 19)
-        str1 = '[{"id": 10, "x": 7, "y": 8, "size": 10}, '
-        str2 = '{"id": 19, "x": 4, "y": 0, "size": 2}]'
+        str1 = '[{"id": 10, "size": 10, "x": 7, "y": 8}, '
+        str2 = '{"id": 19, "size": 2, "x": 4, "y": 0}]'
         str3 = str1 + str2
         Square.save_to_file([s1, s2])
         with open("Square.json", "r") as file:
