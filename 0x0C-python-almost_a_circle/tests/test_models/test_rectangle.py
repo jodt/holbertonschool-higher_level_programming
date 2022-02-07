@@ -193,6 +193,11 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             Rectangle(1)
 
+    def test_zero_arguments(self):
+        """fuction that test for TypeError"""
+        with self.assertRaises(TypeError):
+            Rectangle()
+
     # string
     def test_string_width(self):
         """fuction that test for TypeError"""
