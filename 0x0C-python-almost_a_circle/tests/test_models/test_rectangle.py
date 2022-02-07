@@ -146,6 +146,46 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r3.x, 0)
         self.assertEqual(r3.y, 0)
 
+    # tests getters
+
+    def test_getter_width(self):
+        r4 = Rectangle(2, 4, 6, 8)
+        self.assertEqual(r4.width, 2)
+
+    def test_getter_heigth(self):
+        r4 = Rectangle(2, 4, 6, 8)
+        self.assertEqual(r4.height, 4)
+
+    def test_getter_x(self):
+        r4 = Rectangle(2, 4, 6, 8)
+        self.assertEqual(r4.x, 6)
+
+    def test_getter_y(self):
+        r4 = Rectangle(2, 4, 6, 8)
+        self.assertEqual(r4.y, 8)
+
+    # tests setters #
+
+    def test_setter_width(self):
+        r4 = Rectangle(2, 4, 6, 8)
+        r4.width = 100
+        self.assertEqual(r4.width, 100)
+
+    def test_setter_heigth(self):
+        r4 = Rectangle(2, 4, 6, 8)
+        r4.height = 100
+        self.assertEqual(r4.height, 100)
+
+    def test_setter_x(self):
+        r4 = Rectangle(2, 4, 6, 8)
+        r4.x = 10
+        self.assertEqual(r4.x, 10)
+
+    def test_setter_y(self):
+        r4 = Rectangle(2, 4, 6, 8)
+        r4.y = 12
+        self.assertEqual(r4.y, 12)
+
     # ValueError
 
     def test_negative_width(self):
