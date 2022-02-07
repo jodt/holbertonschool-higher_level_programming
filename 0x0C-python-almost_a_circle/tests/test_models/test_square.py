@@ -4,10 +4,14 @@ This is the "test_square" module
 Thes test_square module supplies a class to test class Square
 """
 
+from re import S
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
+from os.path import exists
+import io
+from contextlib import redirect_stdout
 
 
 class TestSquare(unittest.TestCase):
@@ -221,7 +225,19 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(r1.area(), 100)
 
     # tests Display
-
+    def test_diplay(self):
+        """Check display func"""
+        s1 = Square(2)
+        s2 = Square(4, 2, 2)
+        with io.StringIO() as buf, redirect_stdout(buf):
+            s1.display()
+            output = buf.getvalue()
+            self.assertEqual(output, ("#" * 2 + "\n")*2)
+        with io.StringIO() as buf, redirect_stdout(buf):
+            s2.display()
+            output = buf.getvalue()
+            self.assertEqual(
+                output, (2 * "\n" + (" " * 2 + "#" * 4 + "\n") * 4))
     # tests __str___
 
     def test_str(self):
