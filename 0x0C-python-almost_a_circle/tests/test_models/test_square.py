@@ -3,7 +3,7 @@
 This is the "test_square" module
 Thes test_square module supplies a class to test class Square
 """
-from re import S
+
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle

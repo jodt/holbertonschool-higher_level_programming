@@ -342,6 +342,24 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             Rectangle(1, 2, 3, {"hello": 12})
 
+    # Bool :
+
+    def test_Bool_width(self):
+        with self.assertRaises(TypeError):
+            Rectangle(True, 10, 8, 8)
+
+    def test_Bool_height(self):
+        with self.assertRaises(TypeError):
+            Rectangle(10, True, 8, 8)
+
+    def test_Bool_x(self):
+        with self.assertRaises(TypeError):
+            Rectangle(10, 10, True, 8)
+
+    def test_Bool_y(self):
+        with self.assertRaises(TypeError):
+            Rectangle(10, 5, 8, True)
+
     # None
     def test_None_width(self):
         """fuction that test for TypeError"""
