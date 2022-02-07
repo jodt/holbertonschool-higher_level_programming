@@ -82,7 +82,10 @@ class Base:
         """
         returns an instance with all attributes already set
         """
-        create_instance = cls(3, 5)
+        if cls.__name__ == "Rectangle":
+            create_instance = cls(3, 5)
+        else:
+            create_instance = cls(3)
         create_instance.update(**dictionary)
         return create_instance
 
