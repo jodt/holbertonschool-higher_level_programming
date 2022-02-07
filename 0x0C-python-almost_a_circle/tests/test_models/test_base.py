@@ -86,34 +86,57 @@ class TestBase(unittest.TestCase):
         """
         with self.assertRaises(TypeError):
             Base(1, 2)
-# ---------------------------------------------------------------
 
-    def test_base_to_json_string(self):
-        """
-        This function test if the method to_json_string returns
-        the JSON string representation ofdictionaries list
-        """
-        dict_test = [{'a': 1, 'b': 2}, {'c': 3, 'd': 4}]
-        self.assertTrue(type(Base.to_json_string(dict_test)), str)
-        self.assertEqual(Base.to_json_string(
-            dict_test), '[{"a": 1, "b": 2}, {"c": 3, "d": 4}]')
-        self.assertEqual(Base.to_json_string([]), "[]")
-        self.assertEqual(Base.to_json_string(None), "[]")
+    def test_toJsonString(self):
+        """Convert list to Json content"""
+        l = [{"Salut": 1, "Bonjour": 2}]
+        string = Base.to_json_string(l)
+        self.assertTrue(type(string), str)
+        self.assertEqual(string, '[{"Salut": 1, "Bonjour": 2}]')
 
-# --------------------------------------------------------------
-    def test_base_from_json_string(self):
-        """
-        This function test if the method from_json_string returns
-        the list of the JSON string representation
-        """
-        json_str = '[{"a": 1, "b": 2}, {"c": 3, "d": 4}]'
-        self.assertTrue(type(Base.from_json_string(json_str)), list)
-        self.assertTrue(
-            all(type(elt) is dict for elt in Base.from_json_string(
-                json_str)), dict)
-        self.assertEqual(Base.from_json_string(json_str), [
-                         {"a": 1, "b": 2}, {"c": 3, "d": 4}])
-        self.assertEqual(Base.from_json_string(None), [])
-        self.assertEqual(Base.from_json_string("[]"), [])
+    def test_toJsonString_empty(self):
+        """Convert empty list to Json content"""
+        l = []
+        string = Base.to_json_string(l)
+        self.assertTrue(type(string), str)
+        self.assertEqual(string, '[]')
 
-#
+    def test_toJsonString_None(self):
+        """Convert None to Json content"""
+        l = None
+        string = Base.to_json_string(l)
+        self.assertTrue(type(string), str)
+        self.assertEqual(string, '[]')
+
+    def test_fromJsonString(self):
+        """Convert Json content to list"""
+        string = '[{"Salut": 1, "Bonjour": 2}]'
+        l = Base.from_json_string(string)
+        self.assertTrue(type(l), list)
+        self.assertEqual(l, [{"Salut": 1, "Bonjour": 2}])
+
+    def test_fromJsonStringList(self):
+        """Convert Json content to list"""
+        string = '[{"Salut": 1, "Bonjour": 2}, {"Hola": 1}]'
+        l = Base.from_json_string(string)
+        self.assertTrue(type(l), list)
+        self.assertEqual(l[0], {"Salut": 1, "Bonjour": 2})
+        self.assertEqual(l[1], {"Hola": 1})
+
+    def test_fromJsonString_None(self):
+        """Convert None Json content to list"""
+        string = None
+        l = Base.from_json_string(string)
+        self.assertTrue(type(l), list)
+        self.assertEqual(l, [])
+
+    def test_fromJsonString_len0(self):
+        """Convert empty Json content to list"""
+        string = ""
+        l = Base.from_json_string(string)
+        self.assertTrue(type(l), list)
+        self.assertEqual(l, [])
+
+
+if __name__ == "__main__":
+    unittest.main()
