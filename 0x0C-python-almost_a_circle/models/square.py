@@ -22,7 +22,7 @@ class Square(Rectangle):
         """
         return size value
         """
-        return self.__size
+        return self.width
 
     @size.setter
     def size(self, size):
@@ -30,7 +30,8 @@ class Square(Rectangle):
         update size value
         """
         self.data_validator("width", size)
-        self.__size = size
+        self.width = size
+        self.height = size
 
     def __str__(self):
         """
