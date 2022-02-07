@@ -1,0 +1,5 @@
+*-main.py
+*.json
+__pycache__
+test_rectangle3.py
+test_square2.py
