@@ -116,6 +116,10 @@ class TestRectangle(unittest.TestCase):
         """fuction that test if Rectangle is a subclass of Base"""
         self.assertTrue(issubclass(Rectangle, Base))
 
+    def test_instance(self):
+        """fuction that test if Rectangle is a subclass of Base"""
+        self.assertTrue(isinstance(Rectangle, Base))
+
     def test_conformance(self):
         """Test that we conform to PEP-8."""
         style = pycodestyle.StyleGuide(quiet=True)
