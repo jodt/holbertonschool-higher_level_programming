@@ -1,23 +1,37 @@
 #!/usr/bin/python3
 """
-This is the "test_base" module
-The test_base module suppies a class to test class Base
+Unittest for "base.py"
+Execute all tests: python3 -m unittest discover tests
+Execute this test: python3 -m unittest tests/test_models/test_base.py
 """
 
 import unittest
 import pycodestyle
-from models.base import Base
+from models import base
+Base = base.Base
 
 
 class TestBase(unittest.TestCase):
     """
-    Test class Base
+    class that test the max integer function
+    Task 1:
+        you can assume id is an integer and you don’t need to test the
+            type of it
+    Tests:
+        test_many_created (working test):
+            no arguments when created Base
+            None arguments when created Base
+            Random integer argument when created Base
+            negative integer when creating Base
+            double same id when creating Base
+        test_too_many_arguments (no-working test):
+            too many arguments given
     """
 
     def test_documentation(self):
         """test all documentation of module"""
         # module documentation
-        module = len(Base.__doc__)
+        module = len(base.__doc__)
         self.assertGreater(module, 0)
 
         # class documentation
@@ -50,19 +64,21 @@ class TestBase(unittest.TestCase):
             result.total_errors, 0, "Found code style errors (pycodestyle)."
         )
 
-    def test_base_id(self):
-        """
-        This functions tests assigned id for class creation
-        """
-        test_1 = Base()
-        test_2 = Base()
-        test_3 = Base(77)
-        test_4 = Base(None)
-        self.assertIsInstance(test_1, Base)
-        self.assertEqual(test_1.id, 1)
-        self.assertEqual(test_2.id, 2)
-        self.assertEqual(test_3.id, 77)
-        self.assertEqual(test_4.id, 3)
+    def test_many_created(self):
+        """fuction that test for good assignment of differents id value"""
+        b1 = Base()
+        b2 = Base(None)
+        b3 = Base(12)
+        b4 = Base()
+        b5 = Base(-3)
+        b6 = Base(2)
+
+        self.assertEqual(b1.id, 1)
+        self.assertEqual(b2.id, 2)
+        self.assertEqual(b3.id, 12)
+        self.assertEqual(b4.id, 3)
+        self.assertEqual(b5.id, -3)
+        self.assertEqual(b6.id, 2)
 
     def test_too_many_arguments(self):
         """
@@ -70,7 +86,6 @@ class TestBase(unittest.TestCase):
         """
         with self.assertRaises(TypeError):
             Base(1, 2)
-
 # ---------------------------------------------------------------
 
     def test_base_to_json_string(self):
