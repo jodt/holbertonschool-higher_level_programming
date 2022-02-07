@@ -545,6 +545,8 @@ class TestRectangle(unittest.TestCase):
         r9 = list_rectangles_output[1]
         self.assertIsInstance(r8, Rectangle)
         self.assertIsInstance(r9, Rectangle)
+        self.assertEqual(str(r6), str(r8))
+        self.assertEqual(str(r7), str(r9))
         self.assertIsNot(r6, r8)
         self.assertIsNot(r7, r9)
 
