@@ -4,6 +4,7 @@ This module is the base for all the classes
 """
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -148,3 +149,38 @@ class Base:
             return list_result
         except Exception:
             return list_result
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+        This function Opens a window
+        and draws all the Rectangles and Squares
+
+        Parameters:
+        ----------
+        list_rectangles (list) : list of rectangle objects
+        list_squares (list) : list of square objects
+        """
+        wn = turtle.Screen()
+        wn.bgcolor("white")
+        skk = turtle.Turtle()
+
+        for elt in list_rectangles:
+            skk.up()
+            skk.goto(elt.x, elt.y)
+            skk.down()
+            for i in range(2):
+                skk.fd(elt.width)
+                skk.rt(90)
+                skk.fd(elt.height)
+                skk.rt(90)
+
+        for elt in list_squares:
+            skk.up()
+            skk.goto(elt.x, elt.y)
+            skk.down()
+            for i in range(4):
+                skk.fd(elt.size)
+                skk.rt(90)
+
+        skk.done()
