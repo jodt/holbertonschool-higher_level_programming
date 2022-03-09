@@ -3,6 +3,7 @@ SELECT cities.id, cities.name, states.name as name
 FROM cities
 INNER JOIN states
 ON states.id = cities.state_id
+ORDER BY 1;
 
 
 
