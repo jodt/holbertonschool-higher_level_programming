@@ -18,12 +18,9 @@ if __name__ == "__main__":
             sys.argv[3]),
         pool_pre_ping=True)
     session = Session(engine)
-    list_result = session.query(State).join(City).filter(
-        State.id == City.state_id).order_by(
-        State.id).order_by(
-        City.id).all()
+    list_result = session.query(State)
     for state in list_result:
         print("{}: {}".format(state.id, state.name))
         for city in state.cities:
-            print("    {}: {}".format(city.id, city.name))
+            print("\t{}: {}".format(city.id, city.name))
     session.close()
