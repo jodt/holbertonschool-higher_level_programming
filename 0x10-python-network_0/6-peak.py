@@ -17,6 +17,7 @@ def find_peak(list_of_integers):
     elif (abs(list_of_integers[-1] >= list_of_integers[-2])):
         return list_of_integers[-1]
     else:
-        for i in range(1, len(list_of_integers)-1):
-            if (abs(list_of_integers[i]-1) <= abs(list_of_integers[i]) >= abs(list_of_integers[i+1])):
+        for i in range(1, len(list_of_integers) - 1):
+            if (abs(list_of_integers[i] - 1) <=
+                    abs(list_of_integers[i]) >= abs(list_of_integers[i + 1])):
                 return list_of_integers[i]
