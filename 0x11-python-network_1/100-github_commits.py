@@ -7,7 +7,7 @@ import sys
 if __name__ == '__main__':
     user = sys.argv[2]
     repo = sys.argv[1]
-    url = 'https://api.github.com/repos/{}/{}/commits'.format(repo, user)
+    url = 'https://api.github.com/repos/{}/{}/commits'.format(user, repo)
     r = requests.get(url, params={'per_page': 10})
     if r.ok:
         list = r.json()
