@@ -13,8 +13,9 @@ if __name__ == '__main__':
     else:
         url = "http://0.0.0.0:5000/search_user"
         value = {'q': sys.argv[2] if sys.argv[2] else ''}
+        r = requests.post(url, data=value)
         try:
-            r = requests.post(url, data=value).json()
+            r.json()
             if len(r):
                 print("[{}] {}".format(r.get('id'), r.get('name')))
             else:
