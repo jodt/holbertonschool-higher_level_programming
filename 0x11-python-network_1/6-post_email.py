@@ -7,6 +7,10 @@ as a parameter, and finally displays the body of the response.
 """
 import requests
 import sys
+
 if __name__ == '__main__':
-    r = requests.post(sys.argv[1], data={'email': sys.argv[2]})
+    url = sys.argv[1]
+    mail = sys.argv[2]
+    value = {'email': mail}
+    r = requests.post(url, data=value)
     print(r.text)
