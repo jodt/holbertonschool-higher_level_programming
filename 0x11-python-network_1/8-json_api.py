@@ -12,7 +12,7 @@ if __name__ == '__main__':
         print("No result")
     else:
         url = "http://0.0.0.0:5000/search_user"
-        value = {'q': sys.argv[2] if sys.argv[2] else ''}
+        value = {'q': sys.argv[1] if sys.argv[1] else ''}
         r = requests.post(url, data=value)
         try:
             r.json()
