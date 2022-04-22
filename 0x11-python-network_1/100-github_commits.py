@@ -9,7 +9,10 @@ if __name__ == '__main__':
     repo = sys.argv[1]
     url = 'https://api.github.com/repos/{}/{}/commits'.format(repo, user)
     r = requests.get(url)
-    list = r.json()
-    for i in range(10):
-        print("{}: {}".format(list[i].get('sha'), list[i].get(
-            'commit').get('author').get("name")))
+    if r.ok:
+        list = r.json()
+        for i in range(10):
+            print("{}: {}".format(list[i].get('sha'), list[i].get(
+                'commit').get('author').get("name")))
+    else:
+        print("None")
