@@ -10,10 +10,11 @@ axios.get(process.argv[2])
     response.data.forEach(task => {
       if (task.completed) {
         task.userId in result ? count = countTemp : count = 0;
-        result[task.userId] = ++count;
+        if (count != 0)
+          result[task.userId] = ++count;
         countTemp = count;
       }
-    });
+    })
     console.log(result);
   })
   .catch(err => console.log(err));
