@@ -7,13 +7,17 @@ axios.get(process.argv[2])
     const result = {};
     let count;
     let countTemp;
-    for (const task of response.data) {
-      task.userId in result ? count = countTemp : count = 0;
+    response.data.forEach(task => {
+      if (task.userId in result) {
+        count = countTemp;
+      } else {
+        count = 0;
+      }
       if (task.completed) {
         result[task.userId] = ++count;
         countTemp = count;
       }
-    }
+    });
     console.log(result);
   })
   .catch(err => console.log(err));
