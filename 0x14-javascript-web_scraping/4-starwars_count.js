@@ -6,8 +6,9 @@ axios.get(url)
   .then(response => {
     let count = 0;
     for (const film of response.data.results) {
-      if (film.characters.includes('https://swapi-api.hbtn.io/api/people/18/')) {
-        count++;
+      for (const character of film.characters) {
+        if (character.includes('18'))
+          count++;
       }
     }
     console.log(count);
