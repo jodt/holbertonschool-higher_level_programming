@@ -7,10 +7,11 @@ axios.get(process.argv[2])
     const result = {};
     response.data.forEach(task => {
       if (task.completed) {
-        if (task.userId in result)
+        if (task.userId in result) {
           result[task.userId]++;
-        else
-        result[task.userId] = 1;
+        } else {
+          result[task.userId] = 1;
+        }
       }
     });
     console.log(result);
