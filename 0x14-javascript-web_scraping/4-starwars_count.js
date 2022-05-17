@@ -7,8 +7,9 @@ axios.get(url)
     let count = 0;
     for (const film of response.data.results) {
       for (const character of film.characters) {
-        if (character.includes('18'))
+        if (character.includes('18')) {
           count++;
+        }
       }
     }
     console.log(count);
