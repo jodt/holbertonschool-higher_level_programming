@@ -1,3 +1,5 @@
-$.get('https://fourtonfish.com/hellosalut/?lang=fr', function (data) {
-  $('#hello').text(data.hello);
-});
+window.addEventListener('DOMContentLoaded', (event) => {
+  $.get('https://fourtonfish.com/hellosalut/?lang=fr', function (data) {
+    $('#hello').text(data.hello);
+  });
+})
