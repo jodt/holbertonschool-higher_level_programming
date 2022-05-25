@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', (event) => {
+$(document).ready(function (event) {
   $('#btn_translate').click(function () {
     const language = $('INPUT#language_code').val();
     $.get(`https://www.fourtonfish.com/hellosalut/?lang=${language}`, function (data) {
