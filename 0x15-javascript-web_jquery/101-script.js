@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', (event) => {
+$(document).ready(function(event){
   $('#add_item').click(function () {
     $('.my_list').append('<li>Item</li>');
   });
